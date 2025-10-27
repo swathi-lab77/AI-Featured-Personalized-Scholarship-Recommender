@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scholarship Finder</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>🎓 Scholarship Finder</h1>
+
+    <form action="/search" method="POST">
+
+        <label>Category:</label>
+        <select name="category" required>
+            <option value="">--Select Category--</option>
+            <option value="OC">OC</option>
+            <option value="BC">BC</option>
+            <option value="SC">SC</option>
+            <option value="ST">ST</option>
+            <option value="MINOR">Minority</option>
+        </select>
+
+        <label>Stream:</label>
+        <select name="stream" required>
+            <option value="">--Select Stream--</option>
+            <option value="All">All</option>
+            <option value="Engineering">Engineering</option>
+            <option value="Medical">Medical</option>
+            <option value="Professional">Professional</option>
+            <option value="Arts">Arts</option>
+        </select>
+
+        <label>Gender:</label>
+        <select name="gender" required>
+            <option value="">--Select Gender--</option>
+            <option value="Boys">Boys</option>
+            <option value="Girls">Girls</option>
+        </select>
+
+        <label>Age:</label>
+        <input type="number" name="age" min="1" max="99" required>
+
+        <label>Class:</label>
+        <input type="text" name="class" required>
+
+        <button type="submit">Search</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scholarship Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Available Scholarships</h1>
+
+    {% if scholarships %}
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Gender</th>
+                <th>Stream</th>
+                <th>Eligibility</th>
+                <th>Documents</th>
+                <th>Link</th>
+                <th>Last Date</th>
+            </tr>
+            {% for s in scholarships %}
+            <tr>
+                <td>{{ s.name }}</td>
+                <td>{{ s.category }}</td>
+                <td>{{ s.gender }}</td>
+                <td>{{ s.stream }}</td>
+                <td>{{ s.eligibility }}</td>
+                <td>{{ s.documents }}</td>
+                <td><a href="{{ s.registration_link }}" target="_blank">Apply</a></td>
+                <td>{{ s.last_date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No scholarships found for your criteria.</p>
+    {% endif %}
+</body>
+</html>
