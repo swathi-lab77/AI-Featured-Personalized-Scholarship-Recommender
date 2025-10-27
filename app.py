@@ -28,21 +28,6 @@ def search():
 
     db = get_db()
     cursor = db.cursor()
-
-    # Query scholarships that match both category and stream if provided
-    query = "SELECT * FROM scholarships WHERE 1=1"
-    params = []
-
-    if category:
-        query += " AND category=?"
-        params.append(category)
-    if stream:
-        query += " AND stream=?"
-        params.append(stream)
-
-    cursor.execute(query, params)
-    results = cursor.fetchall()
-    return render_template('results.html', scholarships=results)
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
+
